@@ -70,7 +70,6 @@ function updateUser(event) {
 }
 
 function deleteUser(userId) {
-    console.log('HOLA');
     const users = state.users;
 
     const index = users.findIndex(user => user.id == userId);
