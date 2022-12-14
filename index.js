@@ -7,6 +7,8 @@ const state = {
 
 let inputName = document.getElementById('name');
 let inputEmail = document.getElementById('email');
+let inputCity = document.getElementById('city');
+let inputBirthday = document.getElementById('birthday');
 let inputId = document.getElementById('id');
 let form = document.querySelector('form#create-user');
 let btn = document.querySelector('.btn');
@@ -19,16 +21,22 @@ function addUser() {
     const tr = document.createElement('tr');
     const tdName = document.createElement('td');
     const tdEmail = document.createElement('td');
+    const tdCity = document.createElement('td');
+    const tdBirthday = document.createElement('td');
     const tdId = document.createElement('td');
 
     tdName.innerText = inputName.value;
     tdEmail.innerText = inputEmail.value;
+    tdCity.innerText = inputCity.value;
+    tdBirthday.innerText = inputBirthday.value;
     tdId.innerText = inputId.value;
 
     const tbody = document.getElementById('tab');
     tbody.appendChild(tr);
     tr.appendChild(tdName);
     tr.appendChild(tdEmail);
+    tr.appendChild(tdCity);
+    tr.appendChild(tdBirthday);
     tr.appendChild(tdId);
 
 }
@@ -38,6 +46,8 @@ function loadMForm(userId) {
 
     inputName.value = user.name;
     inputEmail.value = user.email;
+    inputCity.value = user.city;
+    inputBirthday.value = user.birthday;
     inputId.value = userId;
 
 }
@@ -47,11 +57,15 @@ function updateUser(event) {
 
     const name = form.elements.name.value;
     const email = form.elements.email.value;
+    const city = form.elements.city.value;
+    const birthday = form.elements.birthday.value;
     const id = form.elements.id.value;
 
     const modifiedUser = {
         name,
         email,
+        city,
+        birthday,
         id
     }
     const users = state.users;
@@ -89,6 +103,8 @@ function renderUsers() {
         const tr = document.createElement('tr');
         const tdName = document.createElement('td');
         const tdEmail = document.createElement('td');
+        const tdCity = document.createElement('td');
+        const tdBirthday = document.createElement('td');
         const tdId = document.createElement('td');
         const Mbutton = document.createElement('button');
         const Dbutton = document.createElement('button');
@@ -96,12 +112,16 @@ function renderUsers() {
         tbody.appendChild(tr);
         tr.appendChild(tdName);
         tr.appendChild(tdEmail);
+        tr.appendChild(tdCity);
+        tr.appendChild(tdBirthday);
         tr.appendChild(tdId);
         tr.append(Mbutton);
         tr.append(Dbutton);
 
         tdName.innerText = user.name;
         tdEmail.innerText = user.email;
+        tdCity.innerText = user.city;
+        tdBirthday.innerText = user.birthday;
         tdId.innerText = user.id;
 
         Mbutton.innerHTML = `<button class="btn btn-warning" onclick="loadMForm(${user.id})">Modificar</button>`
