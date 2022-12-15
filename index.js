@@ -16,7 +16,6 @@ let btn = document.querySelector('.btn');
 btn.addEventListener('click', addUser);
 form.addEventListener('submit', updateUser);
 
-
 function addUser() {
     const tr = document.createElement('tr');
     const tdName = document.createElement('td');
