@@ -139,8 +139,8 @@ function setUsers() {
         })
         .catch(err => console.log('Hubo un problema con la petición Fetch:' + err.message))
 }
-
-(function getUsers() {
-    setUsers();
-    renderUsers();
-})();
+setUsers()
+// (function getUsers() {
+//     setUsers();
+//     renderUsers();
+// })();
